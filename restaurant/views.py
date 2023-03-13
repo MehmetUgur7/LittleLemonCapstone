@@ -11,6 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class MenuItemsView(ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
     model = Menu
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
@@ -26,6 +27,7 @@ class BookingViewSet(ModelViewSet):
     model = Booking
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class UserViewSet(ModelViewSet):
